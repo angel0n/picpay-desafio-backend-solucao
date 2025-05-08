@@ -22,6 +22,9 @@ export class User {
     @Column()
     senha: string;
 
+    @Column()
+    saldo: number;
+
     @Column({
         type: "enum",
         enum: ClasseUser,

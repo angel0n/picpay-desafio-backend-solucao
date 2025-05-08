@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { TransactionModule } from './transaction/transaction.module';
+import { ApiModule } from './api/api.module';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { TransactionModule } from './transaction/transaction.module';
       autoLoadEntities: true
     }), 
     UsersModule, 
-    AuthModule, TransactionModule,
+    AuthModule, TransactionModule, ApiModule,
   ],
   controllers: [],
   providers: [],

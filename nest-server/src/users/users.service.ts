@@ -4,6 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { EntityNotFoundError, Repository } from 'typeorm';
 import { AuthService } from 'src/auth/auth.service';
+import { UpdateUserDto } from './dto/update-user.gto';
 
 @Injectable()
 export class UsersService {
@@ -28,7 +29,7 @@ export class UsersService {
   }
 
   findAll() {
-    return this.userRepo.find();
+    return this.userRepo.find({ order: { id: "ASC" } });
   }
 
   async findOneOrFail(id: number) {
@@ -39,5 +40,9 @@ export class UsersService {
 
   findOne(id: number){
     return this.userRepo.findOneBy({ id })
+  }
+
+  async update(id: number,updateUserDto: UpdateUserDto){
+    await this.userRepo.update(id, updateUserDto);
   }
 }

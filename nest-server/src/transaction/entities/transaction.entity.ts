@@ -1,9 +1,9 @@
 import { User } from "../../users/entities/user.entity";
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("transactions")
 export class Transaction {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
     id: number;
 
     @ManyToOne(() => User)
